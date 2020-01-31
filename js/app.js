@@ -1,13 +1,21 @@
 (() => {
 	// set up the puzzle pieces and boards
 	// navButtons -> images at the bottom of the page
-	const navButtons = document.querySelectorAll('#buttonHolder img');
+	const navButtons = document.querySelectorAll('#buttonHolder img'),
+				puzzlePieces = document.querySelectorAll('.puzzle-pieces img'),
+				puzzleBoard = document.querySelector('.puzzle-board');
 
+
+	// store the image names here
+	const pieces = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
 	// functions go here => what we want to have happen when our triggers fire
 	function changeImageSet() {
 		// change the thumbnail images on the left to match the button images
+		pieces.forEach((piece, index) => puzzlePieces[index].src=`images/${piece + this.dataset.puzzleindex}.jpg`);
 		// and set a background image on the drop zone container
-		debugger;
+		// debugger;
+		puzzleBoard.style.backgroundImage = `url(images/backGround${this.dataset.puzzleindex}.jpg)`;
+
 }
 
 
