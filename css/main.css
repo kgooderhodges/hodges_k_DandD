@@ -35,8 +35,10 @@ body {
 }
 
 /* arrange the puzzle pieces on the board */
-
-
+.tl, .bl { text-align: right;}
+.tr img {	bottom: 0;}
+.tl img {	bottom: 0; right: 0;}
+.bl img {	right: 0;}
 
 /* set up drop zones */
 .drop-zone {
@@ -45,6 +47,13 @@ body {
 	border: thin dashed white;
 	float: right;
 	position: relative;
+}
+
+.drop-zone img {
+	width: auto !important;
+	padding: 0 !important;
+	cursor: default;
+	position: absolute ;
 }
 
 
