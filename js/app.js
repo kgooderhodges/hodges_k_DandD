@@ -15,6 +15,9 @@
 		pieces.forEach((piece, index) => {
 			puzzlePiece[index].src = `images/${piece + this.dataset.puzzleindex}.jpg`;
 			puzzlePiece[index].id = `${piece + this.dataset.puzzleindex}`;
+		// moving the puzzle pieces back to their parent div when clicking another puzzle
+			let piecesList = document.querySelector('.puzzle-pieces');
+			piecesList.appendChild(puzzlePiece[index]);
 		});
 
 		// and set a background image on the drop zone container
@@ -28,7 +31,7 @@
 
 		// capture the id of the element we're dragging
 		// the dataTransfer object is part of the drag event -> you can use this
-		// to temporarily stoe data you can retrieve and use later
+		// to temporarily store data you can retrieve and use later
 		// like an audio track, as an example
 		event.dataTransfer.setData("text/plain", this.id);
 	}
@@ -42,7 +45,6 @@
 		console.log('drop it');
 
 		let currentPiece = event.dataTransfer.getData("text/plain");
-
 		event.target.appendChild(document.querySelector(`#${currentPiece}`));
 	}
 
@@ -59,5 +61,6 @@
 	// call, apply and bind are different ways to invoke functions
 	// you should know what call does -> research it on MDN
 	 changeImageSet.call(navButtons[0]);
+
 
 })();
