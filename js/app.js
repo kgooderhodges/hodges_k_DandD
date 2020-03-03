@@ -18,6 +18,7 @@
 		// moving the puzzle pieces back to their parent div when clicking another puzzle
 			let piecesList = document.querySelector('.puzzle-pieces');
 			piecesList.appendChild(puzzlePiece[index]);
+			console.log('puzzle pieces reset')
 		});
 
 		// and set a background image on the drop zone container
@@ -42,10 +43,15 @@
 	}
 
 	function allowDrop(event) {
-		console.log('drop it');
 
-		let currentPiece = event.dataTransfer.getData("text/plain");
+		if (this.children.length >= 1) {
+			console.log('error, too many children!');
+			return;
+		}
+
+		let currentPiece = event.dataTransfer.getData('text/plain');
 		event.target.appendChild(document.querySelector(`#${currentPiece}`));
+		console.log('drop it');
 	}
 
 	// add some event handling for the nav navButtons
