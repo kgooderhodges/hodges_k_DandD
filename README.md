@@ -1,1 +1,1 @@
-# Music Mixer Drag and Drop Example
+# Crushing Javascript Bugs
